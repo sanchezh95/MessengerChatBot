@@ -18,43 +18,27 @@ bot.on('message', function(userId, message) {
     var replies = [
         {
             "content_type": "text",
-            "title": "English",
-            "payload": "Hello"
+            "title": "Check Account",
+            "payload": "$214.15 available."
         },
         {
             "content_type": "text",
-            "title": "Spanish",
-            "payload": "Hola"
+            "title": "Tip on saving $",
+            "payload": "Don't buy avocado toast."
+        },
+        {
+            "content_type": "text",
+            "title": "View Spending Graph",
+            "payload": "http://gqtrippin.com/wp-content/uploads/2013/03/budget-pie-chart.jpg"
         }
     ];
 
-    bot.sendQuickReplies(userId, "Select a language", replies);
+    bot.sendQuickReplies(userId, "Select an option:", replies);
 
 });
 
 bot.on('quickreply', function(userId, payload) {
     bot.sendTextMessage(userId, payload);
-
-    // Quick replies
-    var replies = [
-        {
-            "content_type": "text",
-            "title": "acct0",
-            "payload": ""
-        },
-        {
-            "content_type": "text",
-            "title": "Spanish",
-            "payload": "Hola"
-        }
-    ];
-
-    if (payload === "Hello") {
-        bot.sendTextMessage("Which account would you like to check?");
-    }
-    else {
-        bot.sendTextMessage("Que cuenta quieres chequear?");
-    }
 });
 
 // Express listener
