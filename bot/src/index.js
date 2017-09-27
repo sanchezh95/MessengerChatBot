@@ -15,7 +15,7 @@ app.use('/webhook', bot.middleware());
 bot.on('message', function(userId, message) {
 
     // Quick replies
-    var replies = [
+    var generic_options = [
         {
             "content_type": "text",
             "title": "Check Account",
@@ -23,7 +23,7 @@ bot.on('message', function(userId, message) {
         },
         {
             "content_type": "text",
-            "title": "Tip on saving $",
+            "title": "Budgeting tip",
             "payload": "Don't buy avocado toast."
         },
         {
@@ -33,8 +33,26 @@ bot.on('message', function(userId, message) {
         }
     ];
 
-    bot.sendQuickReplies(userId, "Select an option:", replies);
+    var account_options = [
+        {
+            "content_type": "text",
+            "title": "View checking account balance",
+            "payload": "$2345.23 available"
+        },
+        {
+            "content_type": "text",
+            "title": "View savings account balance",
+            "payload": "$987.66 available"
+        }
+    ];
 
+
+    // Check for key words and respond
+    var msg = message.toLowerCase();
+
+    if (msg.includes('account') || msg.includes('enough') || msg.includes('money')) {
+        bot.sendQuickReplies(userId, "Would you like to check your account?", account_options);
+    }
 });
 
 bot.on('quickreply', function(userId, payload) {
