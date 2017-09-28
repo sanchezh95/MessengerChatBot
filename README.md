@@ -13,6 +13,29 @@
         - use postback for payload
         - image attachment (https://developers.facebook.com/docs/messenger-platform/send-api-reference/image-attachment/)
 
+- The chatbot on FB Messenger should have buttons you can select to continue the conversation
+    - current functionality:
+      - using quick responses
+    - to do:
+    - issues:
+        - no chain of events
+    - possible solutions:
+        -
+
+- The chatbot does not need to show REAL BANK information, but if you could simulate the experience that would be helpful.
+    - current functionality:
+        - check fake savings and checking account
+        - tip for saving
+    - to do:
+        - check spending for given time frame
+        - check spending for specific location
+        - check spending for particular set of items
+    - issues:
+    - possible solutions:
+
+
+- The chatbot should have a personality so perhaps think about how to make it funny or expressive.
+    - chatbot has options in spanish
 
 ## Resources:
 - https://developers.facebook.com/docs/messenger-platform
