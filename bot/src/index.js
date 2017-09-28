@@ -8,11 +8,22 @@ var bot = new FBBotFramework ({
     verify_token: "verify_token"
 });
 
-// Get new balance every session
+// Get new balance amounts every session
 var num = Math.random() * 200.00;
 var check_balance = Math.round(num * 100.00) / 100.00;
 num = Math.random() * 200.00;
 var save_balance = Math.round(num * 100.00) / 100.00;
+
+// Get new bill amounts every session
+var cost = Math.random() * 80.00;
+var electric = Math.round(cost * 100.00) / 100.00;
+cost = Math.random() * 80.00;
+var water = Math.round(cost * 100.00) / 100.00;
+cost = Math.random() * 80.00;
+var wifi = Math.round(cost * 100.00) / 100.00;
+cost = Math.random() * 2000.00;
+var rent = Math.round(cost * 100.00) / 100.00;
+var total = electric + water + wifi + rent;
 
 // Set up express for webhook
 app.use('/webhook', bot.middleware());
@@ -74,11 +85,11 @@ bot.on('message', function(userId, message) {
         }
     ];
 
-    // Check for key words and have bot respond
+    // Check for key words and have bot respond - English
     var msg = message.toLowerCase();
 
     if (msg.includes("account") || msg.includes("enough") || msg.includes("money") || msg.includes("spend") ||
-        msg.includes("spent")) {
+        msg.includes("spent") || msg.includes("average")) {
         bot.sendQuickReplies(userId, "Would you like to check your account?", account_options);
     }
 
@@ -86,13 +97,33 @@ bot.on('message', function(userId, message) {
         bot.sendQuickReplies(userId, "Would you like a tip on how to save?", budgeting_options);
     }
 
+    else if (msg.includes("bill") || msg.include("water") || msg.include("electric") || msg.include("rent") ||
+             msg.include("wifi") || msg.include("wi-fi") || msg.include("internet")) {
+        bot.sendTextMessage(userId, "Electric: $" + electric);
+        bot.sendTextMessage(userId, "Water: $" + water);
+        bot.sendTextMessage(userId, "Wi-Fi: $" + wifi);
+        bot.sendTextMessage(userId, "Rent: $" + rent);
+        bot.sendTextMessage(userId, "TOTAL: $" + total);
+    }
+
+    // Key words - Spanish
     else if (msg.includes("cuenta") || msg.includes("suficiente") || msg.includes("dinero") || msg.includes("gasto") ||
-             msg.includes("gasta")) {
+             msg.includes("gasta") || msg.includes("promedio")) {
         bot.sendQuickReplies(userId, "Quieres chequear tu cuenta?", opciones_cuenta);
     }
 
     else if (msg.includes("ahorrar")) {
         bot.sendQuickReplies(userId, "Quieres aprender como ahorrar dinero?", opciones_ahorrar);
+    }
+
+    else if (msg.includes("pago") || msg.includes("factura") || msg.include("electricidad") ||
+             msg.include("electrica") || msg.include("agua") || msg.include("internet") || msg.include("wi-fi") ||
+             msg.include("wi-fi") || msg.include("renta")) {
+        bot.sendTextMessage(userId, "Electricidad: $" + electric);
+        bot.sendTextMessage(userId, "Agua: $" + water);
+        bot.sendTextMessage(userId, "Wi-Fi: $" + wifi);
+        bot.sendTextMessage(userId, "Renta: $" + rent);
+        bot.sendTextMessage(userId, "TOTAL: $" + total);
     }
 
     else {

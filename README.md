@@ -20,7 +20,6 @@
     - issues:
         - no chain of events
     - possible solutions:
-        -
 
 - The chatbot does not need to show REAL BANK information, but if you could simulate the experience that would be helpful.
     - current functionality:
