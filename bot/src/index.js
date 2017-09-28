@@ -97,8 +97,8 @@ bot.on('message', function(userId, message) {
         bot.sendQuickReplies(userId, "Would you like a tip on how to save?", budgeting_options);
     }
 
-    else if (msg.includes("bill") || msg.include("water") || msg.include("electric") || msg.include("rent") ||
-             msg.include("wifi") || msg.include("wi-fi") || msg.include("internet")) {
+    else if (msg.includes("bill") || msg.includes("water") || msg.includes("electric") || msg.includes("rent") ||
+             msg.includes("wifi") || msg.includes("wi-fi") || msg.includes("internet")) {
         bot.sendTextMessage(userId, "Electric: $" + electric);
         bot.sendTextMessage(userId, "Water: $" + water);
         bot.sendTextMessage(userId, "Wi-Fi: $" + wifi);
@@ -116,9 +116,9 @@ bot.on('message', function(userId, message) {
         bot.sendQuickReplies(userId, "Quieres aprender como ahorrar dinero?", opciones_ahorrar);
     }
 
-    else if (msg.includes("pago") || msg.includes("factura") || msg.include("electricidad") ||
-             msg.include("electrica") || msg.include("agua") || msg.include("internet") || msg.include("wi-fi") ||
-             msg.include("wi-fi") || msg.include("renta")) {
+    else if (msg.includes("pago") || msg.includes("factura") || msg.includes("electricidad") ||
+             msg.includes("electrica") || msg.includes("agua") || msg.includes("internet") || msg.includes("wi-fi") ||
+             msg.includes("wi-fi") || msg.includes("renta")) {
         bot.sendTextMessage(userId, "Electricidad: $" + electric);
         bot.sendTextMessage(userId, "Agua: $" + water);
         bot.sendTextMessage(userId, "Wi-Fi: $" + wifi);
