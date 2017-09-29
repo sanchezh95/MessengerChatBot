@@ -20,21 +20,29 @@
     - issues:
         - no chain of events
     - possible solutions:
+        - have bot move through tree given a particular response
 
 - The chatbot does not need to show REAL BANK information, but if you could simulate the experience that would be helpful.
     - current functionality:
         - check fake savings and checking account
         - tip for saving
+        - check bills
     - to do:
         - check spending for given time frame
         - check spending for specific location
         - check spending for particular set of items
     - issues:
+        - creating response for spending on particular items
     - possible solutions:
+        - final product would have more info on user, able to search a db for key word
 
 
 - The chatbot should have a personality so perhaps think about how to make it funny or expressive.
-    - chatbot has options in spanish
+    - current functionality:
+        - chatbot has options in spanish
+        - only one tip is being displayed
+    - to do:
+        - add more helpful and funny tips
 
 ## Resources:
 - https://developers.facebook.com/docs/messenger-platform
